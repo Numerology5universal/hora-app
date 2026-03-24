@@ -4,86 +4,154 @@
 <title>Hora Through Numerology</title>
 
 <style>
+
 body{
-    font-family:Arial;
+    font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     background: linear-gradient(135deg, #0f172a, #020617);
-    color:#fff;
+    color:#d1d5db;
     padding:20px;
+    font-weight:400;
 }
 
+/* Layout */
 .container{
     max-width:900px;
     margin:auto;
 }
 
-input,select{
+/* Labels */
+.label{
+    font-size:13px;
+    color:#94a3b8;
+    margin-top:12px;
+    margin-bottom:5px;
+    display:block;
+    font-weight:400;
+}
+
+/* Inputs */
+input, select{
     width:100%;
-    padding:12px;
-    margin-top:10px;
-    border-radius:8px;
+    padding:10px;
+    margin-top:4px;
+    border-radius:14px;
     border:1px solid #334155;
     background:#020617;
-    color:#fff;
+    color:#e2e8f0;
+    font-size:14px;
+    font-weight:400;
 }
 
+input:focus, select:focus{
+    border-color:#22c55e;
+    box-shadow:0 0 0 1px rgba(34,197,94,0.3);
+}
+
+/* Button */
 button{
     width:100%;
-    padding:12px;
-    margin-top:10px;
-    border-radius:8px;
+    padding:11px;
+    margin-top:12px;
+    border-radius:18px;
     border:none;
     background: linear-gradient(90deg, #22c55e, #16a34a);
-    font-weight:bold;
+    font-weight:500;
     cursor:pointer;
-    transition:0.3s;
+    transition:0.2s;
 }
 button:hover{
-    transform:scale(1.02);
+    transform:scale(1.01);
 }
 
+/* Cards */
 .box{
-    background: rgba(30,41,59,0.8);
-    padding:18px;
+    background: rgba(30,41,59,0.75);
+    padding:16px;
     margin-top:15px;
-    border-radius:12px;
-    backdrop-filter: blur(10px);
-    border:1px solid rgba(255,255,255,0.05);
-    transition:0.3s;
-}
-.box:hover{
-    transform:translateY(-2px);
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,0.04);
+    font-weight:400;
 }
 
+/* Titles */
 .title{
-    font-size:18px;
-    color:#22c55e;
-    margin-bottom:10px;
-}
-
-.highlight{
-    color:#22c55e;
-    font-weight:bold;
-}
-
-.heading{
-    color:#facc15;
-    font-weight:bold;
-    display:block;
-    margin-top:12px;
     font-size:16px;
+    color:#86efac;
+    margin-bottom:8px;
+    font-weight:500;
 }
 
+/* Quick Guide Title */
+.quickTitle{
+    font-size:16px;
+    color:#e2e8f0;
+    margin-bottom:8px;
+    font-weight:500;
+}
+
+/* Text */
 .contentBox{
-    background:#0f172a;
-    padding:10px;
-    border-radius:8px;
+    font-size:14px;
+    line-height:1.7;
+    font-weight:400;
+    color:#d1d5db;
 }
 
+/* Bullet */
+.contentBox li{
+    font-weight:400;
+    line-height:1.7;
+}
+
+/* Section headings */
+.heading{
+    font-size:14px;
+    color:#fde68a;
+    font-weight:500;
+}
+
+/* Highlight */
+.highlight{
+    color:#4ade80;
+    font-weight:500;
+}
+
+/* Soft highlight (for red text fix) */
+.softHighlight{
+    color:#fb7185;
+    font-weight:400;
+}
+
+/* Main heading */
 h2{
     text-align:center;
     margin-bottom:20px;
-    letter-spacing:1px;
+    font-size:20px;
+    font-weight:500;
 }
+
+/* Footer */
+footer{
+    margin-top:25px;
+}
+
+/* Mobile */
+@media (max-width:600px){
+    body{
+        padding:14px;
+    }
+
+    .box{
+        padding:14px;
+    }
+
+    h2{
+        font-size:18px;
+    }
+}
+
 </style>
 
 </head>
@@ -203,6 +271,7 @@ Hora is not just theory — it is a practical timing tool.<br><br>
 </div>
 </div>
 
+<label><small style="color:#e2e8f0;">Numerology Hora is calculated using the current Day and Time</small></label>
 <select id="day">
     <option value="">Select Day</option>
     <option>Sunday</option>
@@ -214,7 +283,8 @@ Hora is not just theory — it is a practical timing tool.<br><br>
     <option>Saturday</option>
 </select>
 
-<input type="time" id="time">
+<label><small style="color:#e2e8f0;">Select Time (24-hour)</small></label>
+<input type="time" id="time" step="3600" title="Select time in 24-hour format">
 
 <button onclick="calculateHora()">Calculate Hora</button>
 
@@ -258,7 +328,7 @@ const planetMap = {
 // 🔮 PREDICTIONS (FIXED)
 const predictions = {
 
-"1/4": `<b style="color:yellow;">Sun – Rahu Hora</b>
+"1/4": `<b style="color:Red;">1/4 - Sun – Rahu Hora</b>
 • Taking charge of new roles or responsibilities.
 • Inauguration of any new venture or project.
 • Best time for mantra chanting, yagya or spiritual recitation.
@@ -311,7 +381,7 @@ Power • New Beginnings • Authority • Spiritual Activation
 <b style="color:yellow;">🔹 Final Prediction:</b>
 👉 “Power + Opportunity + New Beginning = High Success Potential`,
 
-"4/1": `<b style="color:yellow;"> Rahu - Sun Hora</b>
+"4/1": `<b style="color:Red;">4/1 - Rahu - Sun Hora</b>
 • Taking charge of new roles or responsibilities.
 • Inauguration of any new venture or project.
 • Best time for mantra chanting, yagya or spiritual recitation.
@@ -364,7 +434,7 @@ Power • New Beginnings • Authority • Spiritual Activation
 <b style="color:yellow;">🔹 Final Prediction:</b>
 👉 “Power + Opportunity + New Beginning = High Success Potential”`,
 
-"2/7": `<b style="color:yellow;">Moon – Ketu Hora</b>
+"2/7": `<b style="color:Red;">2/7 - Moon – Ketu Hora</b>
 • Convincing someone who is upset or emotional balance and discussions.     
 • Doing future planning and creativity or long-term thinking.                         
 • Engaging in creative thinking or artistic work.
@@ -413,7 +483,7 @@ Emotions • Intuition • Planning • Creativity • Inner Clarity
 <b style="color:yellow;">🔹 Final Prediction:</b>
 👉 “Emotional Influence + Deep Thinking = Agreement & Clarity”`,
 
-"7/2": `<b style="color:yellow;">Ketu - Moon Hora</b>
+"7/2": `<b style="color:Red;">7/2 - Ketu - Moon Hora</b>
 • Convincing someone who is upset or emotional balance and discussions.     
 • Doing future planning and creativity or long-term thinking.                         
 • Engaging in creative thinking or artistic work.
@@ -462,7 +532,7 @@ Emotions • Intuition • Planning • Creativity • Inner Clarity
 <b style="color:yellow;">🔹 Final Prediction:</b>
 👉 “Emotional Influence + Deep Thinking = Agreement & Clarity”`,
 
-"3": `<b style="color:yellow;">Jupiter Hora</b>
+"3": `<b style="color:Red;">3 - Jupiter Hora</b>
 • Religious or spiritual trips. 
 • Visiting temple or going temple or performing puja. 
 • Doing worship and meditation and puja. 
@@ -518,7 +588,7 @@ Wisdom • Stability • Blessings • Smooth Success • Guidance
 <b style="color:yellow;">🔹 Final Prediction:</b>
 👉 “Wisdom + Blessings = Smooth & Safe Success”`, 
 
-"5": `<b style="color:yellow;">Mercury Hora</b>
+"5": `<b style="color:Red;">5 - Mercury Hora</b>
 • Writing & learning, editing, publishing, or studying. 
 • Can buy a particular gemstone, Buying or wearing a gemstone. 
 • Communication & business, Engaging in normal communication or correspondence. 
@@ -570,7 +640,7 @@ Intelligence • Communication • Business • Planning • Networking
 <b style="color:yellow;">🔹 Final Prediction:</b>
 👉 “Intelligence + Communication = Business Success & Smart Decisions”`,
 
-"6": `<b style="color:yellow;">Venus Hora</b>
+"6": `<b style="color:Red;">6 - Venus Hora</b>
 • Love & relationships, Can propose your partner or expressing love, Can go for dating as well, Social life, 
 • Doing creative, aesthetic, or artistic work. 
 • Asking back money you have lent to others, Can ask back your lend money from others. 
@@ -625,7 +695,7 @@ Love • Relationships • Luxury • Comfort • Enjoyment • Attraction
 <b style="color:yellow;">🔹 Final Prediction:</b>
 👉 “Attraction + Comfort + Relationship Energy = Love & Financial Ease”`,
 
-"8": `<b style="color:yellow;">Saturn Hora</b>
+"8": `<b style="color:Red;">8 - Saturn Hora</b>
 • Money management, Managing money-related work or lottery matters. 
 • Payments & salaries, Giving salaries or payments to servants or workers. 
 • Avoid commitments & taking/making or accepting long-term Decisions, commitments or promises. 
@@ -680,7 +750,7 @@ Discipline • Delay • Karma • Practical Work • Stability
 <b style="color:yellow;">🔹 Final Prediction:</b>
 👉 “Delay + Discipline + Karma = Slow but Stable Results”`,
 
-"9": `<b style="color:yellow;">Mars Hora</b>
+"9": `<b style="color:Red;">9 - Mars Hora</b>
 • Best time to Giving or taking money, financial transactions. 
 • Having deep discussions, debates, or brain storming sessions, Bold decisions. 
 • Engaging in work, exercise, or physical activity, Action & energy. 
@@ -814,6 +884,41 @@ function calculateHora(){
 }
 
 </script>
+
+<div class="box contentBox" style="margin-top:30px;">
+
+    <div class="title quickTitle">⚡ Hora Guide</div>
+
+    <span class="heading">☀️ 1/4 (Sun + Rahu)</Span>
+<b style="color:Red;">→ Start anything important</b> 
+👉 New Role, Responsibilities, opening, Govt Work, Pooja, Higher Education, Inauguration, Mantra Chanting, Govt work - Aadhar, Passport, Pooja, Hawan, Higher Education, Start & Power.<br>
+
+    <span class="heading">🌙 2/7 (Moon + Ketu)</Span> 
+<b style="color:Red;">→ Thinking & Emotional Work</b>
+👉 Emotional and Planning, Convince Someone, Creative Work, Cash Handling or Counting, Creative work, Metal Purchase.<br>
+
+    <span class="heading">📿 3 (Jupiter)</Span> 
+<b style="color:Red;">→ Safe & Lucky Time</b>
+👉 Pooja, Court, Religious Trips, Temple, Documentation, Sale Purchase Vehicle, Court Related, Marriage Proposal, Study, Family, Mentor, Maintain Good Relationship, Safe & Lucky.<br>
+
+    <span class="heading">🧠 5 (Mercury)</Span> 
+<b style="color:Red;">→ Business & Communication</b>
+👉 Deals, Planning or Budgeting, Writing, Publishing, Networking, Communication, Business, New Ideas, Gemstone, Jewellery, New Friendship, Collabs, Partnerships.<br>
+
+    <span class="heading">💖 6 (Venus)</Span> 
+<b style="color:Red;">→ Love & Luxury</b>
+👉 Relationship, Shopping, Creativity, Love, Luxury, Dating, Luxury, Artistic, Ask Money Back, Sell Product, New Purchase Anything.<br>
+
+    <span class="heading">🪨 8 (Saturn)</Span> 
+<b style="color:Red;">→ Practical Work</b>
+👉 Investment, Machinery, Salary, Electronic Gadget, Iron Steel, Tools purchase, Message Oiling, Delay and Karma, Lottery.<br>
+    <b style="color:Red;">❌ Avoid:</b> long-term decisions, Strong promises, Important work outside will get delayed.<br>
+
+    <span class="heading">🔥 9 (Mars)</Span> 
+<b style="color:Red;">→ Action & Power</b>
+👉 Discussion or Debate, Money, Exercise, Daring Task, Bold Decisions, Salary increment, Purchase Gold, Surgery, Brainstorming, Action and Victory, Give and Take Money. <br>
+
+</div>
 
 </body>
 </html>
